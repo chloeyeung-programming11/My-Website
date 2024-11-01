@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>LVMH</title>
+    <link rel="stylesheet" type="text/css" href="Contact.css">
+</head>
+<script>
+  function updateClock(){ 
+    const now  =  new Date(); 
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+    let session = hours >= 12 ? "PM" : "AM" ;
+
+
+    hours = hours % 12 ; 
+    hours = hours ? hours : 12 ;
+
+    document.getElementById("hours").textContent = hours.toString().padStart(2 , '0');
+    document.getElementById("minutes").textContent = minutes.toString().padStart(2 , '0');
+    document.getElementById("secondes").textContent = seconds.toString().padStart(2 , '0');
+    document.getElementById("session").textContent = session;
+
+}    
+
+setInterval(updateClock , 1000); 
+updateClock();
+(function ($) {
+  'use strict';
+  $(function () {
+    var contactBox = $('.contact-box');
+    contactBox.on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+      contactBox.removeClass('animated fadeOutDownBig');
+    });
+    $('.close').click(function(event) {
+      event.preventDefault();
+      contactBox.addClass('animated fadeOutDownBig');
+    });
+    $('#contact-form').validate({
+      errorElement: 'div',
+      messages: {
+        name: ' introduce yourself',
+        email: {
+          required: 'Please give us your email so we can reply',
+          email: 'It doesn\'t look like email address'
+        },
+        message: 'Please write something, don\'t be shy'
+      },
+      submitHandler: function(form) {
+      }
+    });
+  });
+})(jQuery);
+</script>
+<body>
+    <div class="wrapper">
+        <nav id="navbar">
+            <a href="index.html">-Home-</a>
+            <a href="LVMH.html">LVMH</a>
+            <a href="Kerings.html">Kerings</a>
+            <a href="Articles.html">Them</a>
+            <a href='People.html'>People</a>
+            <a href="Contact.html"><span style="background-color: rgba(28, 71, 43, 0.457);">Contact</span></a>
+        </nav>
+      <header>
+        <div class="clock-container">
+        <div class="clock">
+            <span id="hours">00</span>
+            <span id="minutes">00</span>
+            <span id="secondes">00</span>
+            <span id="session">AM</span>
+        </div>
+    </div></header>
+        <div id="myDIV">
+            <p >CONTACT US FOR MORE!</p>
+          </div>
+          <div id="myDIV">
+            <p >WE ARE SUPER WELCOME</p>
+          </div>
+          <div id="myDIV">
+            <p >GIVE US SUGGESTIONS!</p>
+          </div>
+          <div class="contact-box fadeInDownBig">
+            <div class="contact-box-header group">
+              <h2>Contact us</h2>
+              <h3>Tell us what you think of this website!</h3>
+             </div>
+            <form id="contact-form">
+              <div class="row group">
+                <div class="col2">
+                  <label class="form-icon name-icon"></label>
+                  <input type="text" placeholder="Name" name="name" id="name" required>
+                </div>
+                <div class="col2">
+                  <label class="form-icon Email"></label>
+                  <input type="Email" placeholder="Email" name="Email" id="Email" required>
+                </div>
+              </div>
+              <div class="row group">
+                <div class="col1 last">
+                  <label class="form-icon edit-icon"></label>
+                  <textarea placeholder="Message" required name="message" id="message"></textarea>
+                </div>
+              </div>
+              <div class="contact-box-footer group">
+                <input type="submit" value="Send">
+              </div>
+            </form>
+          </div>
+          <div id="myDIV">
+            <p >CONTACT US FOR MORE!</p>
+          </div>
+          <div id="myDIV">
+            <p >WE ARE SUPER WELCOME</p>
+          </div>
+          <div id="myDIV">
+            <p >GIVE US SUGGESTIONS!</p>
+            <div id="myDIV">
+              <P>THANK YOU FOR SUGGESTING</P>
+            </div>
+          </div>
+          
+        
+    </div>
+</body>
+</html>
